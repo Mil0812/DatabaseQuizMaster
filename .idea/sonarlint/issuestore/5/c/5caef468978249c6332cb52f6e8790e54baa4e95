@@ -1,0 +1,11 @@
+
+v
+java:S1104"YMake springContext a static final constant or non-public and provide accessors if needed.(œÔ³8…ê÷Îû1
+P
+java:S1444"3Make this "public static springContext" field final(œÔ³8†ê÷Îû1
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¢„›¨8šê÷Îû1
+[
+java:S1854">Remove this useless assignment to local variable "fxmlLoader".(¥ÁÔ8İ‰ÿÎû1
+L
+java:S1481"/Remove this unused "fxmlLoader" local variable.(¥ÁÔ8æ‰ÿÎû1
