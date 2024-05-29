@@ -9,9 +9,7 @@ public record User(
     String login,
     String password,
     String firstName,
-    String lastName,
-    String email,
-    Status status
+    String lastName
 ) implements Entity, Comparable<User> {
 
 
@@ -19,27 +17,12 @@ public record User(
   // об’єднує значення цих полів і обчислює хеш-код
   @Override
   public int hashCode() {
-    return Objects.hash(id, login, password, firstName, lastName, email, status);
+    return Objects.hash(id, login, password, firstName, lastName);
   }
 
   //за чим сортує
   @Override
   public int compareTo(User u) {
     return this.login.compareTo(u.login);
-  }
-
-  public enum Status {
-    TEACHER("teacher"),
-    STUDENT("student");
-
-    String name;
-
-    Status(String name) {
-      this.name = name;
-    }
-
-    public String getName() {
-      return name;
-    }
   }
 }

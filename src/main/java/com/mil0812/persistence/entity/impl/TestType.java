@@ -1,9 +1,6 @@
 package com.mil0812.persistence.entity.impl;
 
 import com.mil0812.persistence.entity.Entity;
-import java.awt.Image;
-import java.util.Arrays;
-import java.util.Objects;
 import java.util.UUID;
 
 public record TestType(

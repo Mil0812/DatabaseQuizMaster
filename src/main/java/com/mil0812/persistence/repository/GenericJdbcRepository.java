@@ -1,8 +1,6 @@
 
 package com.mil0812.persistence.repository;
 
-import static java.lang.StringTemplate.STR;
-
 import com.mil0812.persistence.connection.ConnectionManager;
 import com.mil0812.persistence.entity.Entity;
 import com.mil0812.persistence.exception.EntityNotFound;

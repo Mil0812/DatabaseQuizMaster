@@ -1,4 +1,4 @@
-package com.mil0812.persistence.unitOfWork;
+package com.mil0812.persistence.unit_of_work;
 
 import com.mil0812.persistence.entity.Entity;
 import com.mil0812.persistence.exception.EntityNotFound;

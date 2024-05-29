@@ -2,8 +2,6 @@ package com.mil0812.persistence.entity.proxy.impl;
 
 import com.mil0812.persistence.entity.impl.Section;
 import com.mil0812.persistence.entity.proxy.interfaces.Sections;
-import com.mil0812.persistence.entity.proxy.interfaces.Tests;
-import com.mil0812.persistence.repository.interfaces.SectionRepository;
 import com.mil0812.persistence.repository.interfaces.TestRepository;
 import java.util.Collections;
 import java.util.Set;

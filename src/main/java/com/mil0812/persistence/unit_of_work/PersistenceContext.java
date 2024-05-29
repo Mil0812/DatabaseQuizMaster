@@ -1,12 +1,12 @@
-package com.mil0812.persistence.unitOfWork;
+package com.mil0812.persistence.unit_of_work;
 
-import com.mil0812.persistence.unitOfWork.impl.AnswerUnitOfWork;
-import com.mil0812.persistence.unitOfWork.impl.QuestionUnitOfWork;
-import com.mil0812.persistence.unitOfWork.impl.ResultUnitOfWork;
-import com.mil0812.persistence.unitOfWork.impl.SectionUnitOfWork;
-import com.mil0812.persistence.unitOfWork.impl.TestTypeUnitOfWork;
-import com.mil0812.persistence.unitOfWork.impl.TestUnitOfWork;
-import com.mil0812.persistence.unitOfWork.impl.UserUnitOfWork;
+import com.mil0812.persistence.unit_of_work.impl.AnswerUnitOfWork;
+import com.mil0812.persistence.unit_of_work.impl.QuestionUnitOfWork;
+import com.mil0812.persistence.unit_of_work.impl.ResultUnitOfWork;
+import com.mil0812.persistence.unit_of_work.impl.SectionUnitOfWork;
+import com.mil0812.persistence.unit_of_work.impl.TestTypeUnitOfWork;
+import com.mil0812.persistence.unit_of_work.impl.TestUnitOfWork;
+import com.mil0812.persistence.unit_of_work.impl.UserUnitOfWork;
 import org.springframework.stereotype.Component;
 
 

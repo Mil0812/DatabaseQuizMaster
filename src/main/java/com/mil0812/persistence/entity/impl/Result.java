@@ -4,7 +4,6 @@ import com.mil0812.persistence.entity.Entity;
 import com.mil0812.persistence.entity.proxy.interfaces.SectionProxy;
 import com.mil0812.persistence.entity.proxy.interfaces.TestProxy;
 import com.mil0812.persistence.entity.proxy.interfaces.UserProxy;
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.UUID;
 

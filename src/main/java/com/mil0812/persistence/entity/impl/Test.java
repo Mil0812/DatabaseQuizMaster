@@ -3,7 +3,6 @@ package com.mil0812.persistence.entity.impl;
 import com.mil0812.persistence.entity.Entity;
 import com.mil0812.persistence.entity.proxy.interfaces.Sections;
 import com.mil0812.persistence.entity.proxy.interfaces.UserProxy;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;

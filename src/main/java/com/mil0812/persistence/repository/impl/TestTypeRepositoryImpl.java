@@ -1,18 +1,13 @@
 package com.mil0812.persistence.repository.impl;
 
 import com.mil0812.persistence.connection.ConnectionManager;
-import com.mil0812.persistence.entity.impl.Test;
 import com.mil0812.persistence.entity.impl.TestType;
 import com.mil0812.persistence.repository.GenericJdbcRepository;
 import com.mil0812.persistence.repository.interfaces.TableTitles;
-import com.mil0812.persistence.repository.interfaces.TestRepository;
 import com.mil0812.persistence.repository.interfaces.TestTypeRepository;
-import com.mil0812.persistence.repository.mappers.RowMapper;
 import com.mil0812.persistence.repository.mappers.impl.TestTypeRowMapper;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import org.springframework.stereotype.Repository;
 
 @Repository

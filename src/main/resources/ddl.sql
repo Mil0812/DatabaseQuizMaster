@@ -10,14 +10,12 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users
 (
     id        UUID PRIMARY KEY,
-    login     VARCHAR(20)  NOT NULL UNIQUE,
-    password  VARCHAR(20)  NOT NULL,
-    firstName VARCHAR(30)  NOT NULL,
-    lastName  VARCHAR(30)  NOT NULL,
-    email     VARCHAR(111) NOT NULL UNIQUE,
-    status    VARCHAR(7)   NOT NULL,
+    login     VARCHAR(20) NOT NULL UNIQUE,
+    password  VARCHAR(20) NOT NULL,
+    firstName VARCHAR(30) NOT NULL,
+    lastName  VARCHAR(30) NOT NULL,
+    avatar    BYTEA       NULL,
     CONSTRAINT users_login_key UNIQUE (login),
-    CONSTRAINT users_email_key UNIQUE (email),
     CONSTRAINT users_login_min_length_check CHECK (LENGTH(login) >= 5)
 );
 

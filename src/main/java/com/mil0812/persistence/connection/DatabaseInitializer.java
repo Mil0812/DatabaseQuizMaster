@@ -1,4 +1,6 @@
-package com.mil0812.eventsplanner.persistence.connection;
+package com.mil0812.persistence.connection;
+
+import static java.lang.StringTemplate.STR;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;

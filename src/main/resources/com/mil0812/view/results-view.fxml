@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="com.mil0812.presentation.controllers.ResultsPageController"
+  prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: #BC886D">
+
+  <TableView fx:id="resultsTable" layoutX="129.0" layoutY="39.0" prefHeight="316.0" prefWidth="666.0">
+    <columns>
+      <TableColumn prefWidth="300.0000305175781" text="Назва тесту" />
+      <TableColumn prefWidth="231.99996948242188" text="Дата проходження" />
+      <TableColumn prefWidth="137.60009765625" text="Кількість балів" />
+    </columns>
+  </TableView>
+
+</AnchorPane>
