@@ -45,8 +45,6 @@ l
 <src/main/java/com/mil0812/presentation/SpringFXMLLoader.java,7\0\70112ad5f2881f54165991d7fc1f05b849685f7c
 Ç
 Rsrc/main/java/com/mil0812/presentation/controllers/RegistrationPageController.java,c\f\cf8cb667995e71539b8d9cbcfbb23ef574219dce
-n
->src/main/java/com/mil0812/presentation/util/SceneSwitcher.java,3\6\36a9000e77e133404466473b5a1b555b2be17804
 z
 Jsrc/main/java/com/mil0812/presentation/controllers/MainPageController.java,c\c\ccefb8424a46395b1780af13f2678bce30da70e4
 m
@@ -59,14 +57,8 @@ w
 Gsrc/main/java/com/mil0812/presentation/controllers/ChildController.java,a\3\a33c68527bbeece85596585ba4a13e679faae0c5
 q
 Asrc/main/java/com/mil0812/presentation/util/FXMLLoaderResult.java,9\f\9f47fe813e98e63e1f722b985d568f3a76fb4c3c
-{
-Ksrc/main/java/com/mil0812/presentation/controllers/CollectorController.java,7\b\7bbbb6308bb06f844fdf30cd97a525dd734ac390
 }
 Msrc/main/java/com/mil0812/presentation/controllers/WelcomePageController.java,5\c\5c8656c0019af8c2381a358e2911ce02ab12b1e4
-v
-Fsrc/main/java/com/mil0812/presentation/controllers/TestController.java,d\9\d96e8b8270f9d7c0587fc29800e97f0183937a3f
-|
-Lsrc/main/java/com/mil0812/presentation/controllers/ResultPageController.java,1\f\1f5d0beb208a1e3a731b72717fafd7610e739053
 {
 Ksrc/main/java/com/mil0812/presentation/controllers/TestsPageController.java,1\a\1a88bfef2e5236ea5baa6b150c4c9e03afea5919
 }
@@ -127,3 +119,11 @@ z
 Jsrc/main/java/com/mil0812/persistence/entity/proxy/impl/SectionsProxy.java,3\1\31276663bc24231a197444c689031030b74a7087
 w
 Gsrc/main/java/com/mil0812/persistence/entity/proxy/impl/TestsProxy.java,e\d\ed2c759a7c969a4dfaaef42211199d1575c5a60b
+Å
+Qsrc/main/java/com/mil0812/presentation/controllers/TestWelcomePageController.java,9\8\98a96272f6342d3d0af24066ba78f6dc703e9535
+É
+Ssrc/main/java/com/mil0812/presentation/controllers/ActiveTestingPageController.java,e\3\e35cf3049834d990c15532d2648eee09697e0c9e
+j
+:src/main/java/com/mil0812/presentation/util/AlertUtil.java,e\1\e1376fa6a5a38205282857d7d40270b9a90b0c9f
+Ç
+Rsrc/main/java/com/mil0812/presentation/controllers/TestFinishedPageController.java,c\8\c80d607b5e875341cf9618c4e0778b0e8d199f7f

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: #F7F9F9" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mil0812.presentation.controllers.ActiveTestingPageController">
+  <ImageView fx:id="backArrowOnQuiz" fitHeight="70.0" fitWidth="70.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" />
+  <HBox fx:id="countPanel" alignment="CENTER" layoutX="740.0" layoutY="38.0" prefHeight="67.0" prefWidth="147.0" style="-fx-spacing: 10;">
+    <children>
+      <Label fx:id="currentMarkLabel" styleClass="dark_label" text="1" />
+      <Label styleClass="dark_label" text="з" />
+      <Label fx:id="questionsCountLabel" styleClass="dark_label" text="15" />
+    </children>
+    <opaqueInsets>
+      <Insets />
+    </opaqueInsets>
+  </HBox>
+  <VBox fx:id="textArea" layoutX="430.0" layoutY="102.0" prefHeight="322.0" prefWidth="362.0">
+    <children>
+      <Label fx:id="questionTextLabel" styleClass="dark_label" text="Які з цих типів запитів існують? And something else..." wrapText="true">
+        <font>
+          <Font size="18.0" />
+        </font>
+      </Label>
+         <FlowPane alignment="CENTER_LEFT" prefHeight="47.0" styleClass="answers_pane">
+            <children>
+          <Label fx:id="answerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="202.0" styleClass="light_text" text="Прості" textAlignment="CENTER" />
+          <ImageView fx:id="correctnessImage" fitHeight="46.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+         </FlowPane>
+    </children>
+  </VBox>
+   <ImageView fx:id="girlImage" fitHeight="252.0" fitWidth="238.0" layoutX="24.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
+   <Button fx:id="confirmButton" layoutX="665.0" layoutY="424.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="127.0" styleClass="buttons_small" text="Відповісти"  />
+   <Button fx:id="nextQuestionButton" layoutX="500.0" layoutY="424.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" styleClass="buttons_small" text="Наступне питання" visible="false"/>
+   <Pane fx:id="dialogPane" layoutX="233.0" layoutY="165.0" prefHeight="67.0" prefWidth="167.0" visible="false">
+      <children>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bc886d" height="67.0" stroke="BLACK" strokeType="INSIDE" width="166.0" />
+         <Label fx:id="answerResultLabel" alignment="CENTER" prefHeight="60.0" prefWidth="166.0" styleClass="light_text_small"/>
+      </children>
+   </Pane>
+
+</AnchorPane>

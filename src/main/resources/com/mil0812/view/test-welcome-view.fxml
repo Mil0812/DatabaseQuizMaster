@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.shape.Rectangle?>
+
+<?import javafx.scene.control.Tooltip?>
+<AnchorPane fx:id="welcomePane" prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: #F7F9F9" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mil0812.presentation.controllers.TestWelcomePageController">
+   <ImageView fx:id="girlImage" fitHeight="373.0" fitWidth="304.0" layoutX="35.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bc886d" height="196.0" layoutX="361.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="450.0" />
+   <Polyline fill="#bc886d" layoutX="356.0" layoutY="297.0" points="64.80001831054688, -1.0, 35.199981689453125, 6.800018310546875, -15.199981689453125, 19.600006103515625, 4.999969482421875, -44.399993896484375" strokeType="INSIDE" />
+   <VBox layoutX="361.0" layoutY="100.0" prefHeight="196.0" prefWidth="450.0" style="-fx-cursor: hand">
+      <children>
+         <Label fx:id="labelWithFirstName" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="Вітаю, Фанні!" />
+         <Label fx:id="labelWithTestTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="Це тест під назвою “Основні поняття про SQL”." />
+         <Label fx:id="labelWithQuestionCount" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="В ньому 7 запитань," />
+         <Label fx:id="labelWithTestType" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="кожне може мати декілька варіантів відповіді." />
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="Успіхів у проходженні!" >
+            <tooltip>
+               <Tooltip text="Натисніть, щоб продовжити" />
+            </tooltip>
+         </Label>
+      </children>
+   </VBox>
+</AnchorPane>

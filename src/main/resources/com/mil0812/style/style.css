@@ -13,6 +13,17 @@
   -fx-cursor: hand;
 }
 
+.buttons_small {
+  -fx-background-color: #FFFFFF;
+  -fx-border-color: #b4190b;
+  -fx-border-radius: 5;
+  -fx-border-width: 2;
+  -fx-font-family: "Book Antiqua";
+  -fx-font-size: 15.0;
+  -fx-text-fill: #b4190b;
+  -fx-cursor: hand;
+}
+
 .buttons_inverted {
   -fx-background-color: #b4190b;
   -fx-border-color: #FFFFFF;
@@ -38,6 +49,13 @@
 .light_text{
   -fx-font: 21.0 "Book Antiqua";
   -fx-text-fill:  #F7F9F9;
+  -fx-wrap-text: true;
+}
+
+.light_text_small{
+  -fx-font: 17.0 "Book Antiqua";
+  -fx-text-fill:  #F7F9F9;
+  -fx-wrap-text: true;
 }
 
 .radio_button {
@@ -55,6 +73,27 @@
 #label {
   -fx-font-family: "Book Antiqua";
   -fx-font-size: 15.0;
+  -fx-wrap-text: true;
+}
+
+.panel_with_bottom_border{
+  -fx-border-color: transparent transparent #D36558 transparent;
+  -fx-border-width: 0 0 2 0;
+}
+
+.dark_label{
+  -fx-text-fill: #504C60;
+  -fx-font-weight: bold;
+  -fx-font-size: 20.0;
+  -fx-wrap-text: true;
+}
+
+.answers_pane{
+    -fx-background-color: #504c60;
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-pref-width: 250;
 }
 
 /*STYLES FOR TABLE_VIEW*/

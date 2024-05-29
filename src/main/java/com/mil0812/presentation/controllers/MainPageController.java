@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import org.springframework.stereotype.Component;
 
@@ -31,6 +32,14 @@ public class MainPageController implements PageSwitcher{
   public static ImageView backArrowImage;
   @FXML
   public AnchorPane mainPageArea;
+  @FXML
+  public AnchorPane topPanelForTestingMode;
+  @FXML
+  public Label quizTitle;
+  @FXML
+  public ImageView backArrowOnQuiz;
+  @FXML
+  public Label quizDescription;
   @FXML
   private AnchorPane bottomPanel;
   @FXML
@@ -126,7 +135,7 @@ public class MainPageController implements PageSwitcher{
 
   }
 
-  public void updateLayoutForEnterAndAuthorisationPages() {
+  public void updateLayoutForEnterAndAuthorizationPages() {
     quizImageView.setVisible(true);
     topPanel.setVisible(false);
     bottomPanel.setVisible(false);
@@ -138,5 +147,31 @@ public class MainPageController implements PageSwitcher{
     topPanel.setVisible(true);
     bottomPanel.setVisible(true);
     mainArea.setLayoutY(100.0);
+    topPanelForTestingMode.setVisible(false);
   }
+
+  public void updateLayoutForActiveTestingMode() {
+    topPanel.setVisible(false);
+    bottomPanel.setVisible(false);
+    mainArea.setLayoutY(100.0);
+    topPanelForTestingMode.setVisible(true);
+  }
+
+
+  /*public void disableElements(boolean inactive){
+
+    //bottom panel
+    bottomPanel.getChildren().forEach(node -> {
+      if (node instanceof Button) {
+        ((Button) node).setDisable(inactive);
+      }
+    });
+
+    //top panel
+    topPanel.getChildren().forEach(node -> {
+      if (node instanceof ImageView) {
+        ((ImageView) node).setDisable(inactive);
+      }
+    });
+  }*/
 }

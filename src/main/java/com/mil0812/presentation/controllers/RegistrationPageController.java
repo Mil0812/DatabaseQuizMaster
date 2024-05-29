@@ -37,12 +37,6 @@ public class RegistrationPageController extends ChildController {
   @FXML
   private Button signUpButton;
 
-  private final UserRepository userRepository;
-
-  @Autowired
-  public RegistrationPageController(UserRepository userRepository) {
-    this.userRepository = userRepository;
-  }
 
   @FXML
   void initialize() {
