@@ -7,22 +7,8 @@ public record TestType(
     UUID id,
     String name,
     String description,
-    String title,
-    String image,
-    int maxAnswerCount,
     int correctAnswerCount
 ) implements Entity, Comparable<TestType> {
-
-  public TestType(UUID id, String name, String description, String title, String image,
-      int maxAnswerCount, int correctAnswerCount) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.title = title;
-    this.image = image;
-    this.maxAnswerCount = maxAnswerCount;
-    this.correctAnswerCount = correctAnswerCount;
-  }
 
   @Override
   public int compareTo(TestType tt) {
@@ -31,6 +17,6 @@ public record TestType(
 
   @Override
   public String toString() {
-    return STR."TestType{id=\{id}, name='\{name}\{'\''}, description='\{description}\{'\''}, title='\{title}\{'\''}, image='\{image}\{'\''}, maxAnswerCount=\{maxAnswerCount}, correctAnswerCount=\{correctAnswerCount}\{'}'}";
+    return STR."TestType{id=\{id}, name='\{name}\{'\''}, description='\{description}\{'\''}, correctAnswerCount=\{correctAnswerCount}\{'}'}";
   }
 }

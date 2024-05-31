@@ -42,6 +42,7 @@ public class AnswerRepositoryImpl extends GenericJdbcRepository<Answer>
     if (!answer.answerText().isBlank()) {
       values.put("answer_text", answer.answerText());
     }
+      values.put("correctness", answer.correctness());
     return values;
   }
 }

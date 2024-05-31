@@ -7,8 +7,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AnswerUnitOfWork extends GeneralUnitOfWork<Answer> {
+  public final AnswerRepository answerRepository;
 
   public AnswerUnitOfWork(AnswerRepository answerRepository) {
     super(answerRepository);
+    this.answerRepository = answerRepository;
   }
 }

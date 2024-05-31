@@ -10,6 +10,7 @@ import com.mil0812.persistence.repository.mappers.RowMapper;
 import com.mil0812.persistence.repository.mappers.impl.TestRowMapper;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import org.springframework.stereotype.Repository;
@@ -18,63 +19,13 @@ import org.springframework.stereotype.Repository;
 public class SectionRepositoryImpl extends GenericJdbcRepository<Section>
     implements SectionRepository {
 
-  private final TestRowMapper testRowMapper;
-  private final ManyToManyJBDC<Test> manyToManyJBDC;
 
   public SectionRepositoryImpl
       (ConnectionManager connectionManager,
-          RowMapper<Section> rowMapper,
-          TestRowMapper testRowMapper,
-          ManyToManyJBDC<Test> manyToManyJBDC) {
+          RowMapper<Section> rowMapper) {
     super(connectionManager, rowMapper, TableTitles.SECTION.getName());
-    this.testRowMapper = testRowMapper;
-    this.manyToManyJBDC = manyToManyJBDC;
+
   }
-
-
-  @Override
-  public boolean attach(UUID sectionId, UUID testId) {
-    final String sql =
-        """
-            INSERT INTO section_test(section_id, test_id)
-            VALUES (?, ?);
-            """;
-
-    return false;
-  }
-
-  @Override
-  public boolean detach(UUID sectionId, UUID testId) {
-    final String sql =
-        """
-            DELETE FROM section_test
-                  WHERE section_id = ? AND test_id = ?;
-            """;
-
-    return false;
-  }
-
-  @Override
-  public Set<Test> getTests(UUID sectionId) {
-    final String sql =
-        """
-            SELECT t.id,
-                   t.user_id,
-                   t.type_id,
-                   t.title,
-                   t.question_count
-              FROM tests AS t
-                   JOIN section_test AS st
-                     ON t.id = st.test_id
-             WHERE st.section_id = ?;
-            """;
-    return manyToManyJBDC.getEntities(
-        sectionId,
-        sql,
-        testRowMapper,
-        STR."Помилка при отриманні всіх тестів розділу за id: \{sectionId}");
-  }
-
   @Override
   protected Map<String, Object> tableValues(Section section) {
     Map<String, Object> values = new LinkedHashMap<>();
@@ -82,5 +33,10 @@ public class SectionRepositoryImpl extends GenericJdbcRepository<Section>
       values.put("name", section.name());
     }
     return values;
+  }
+
+  @Override
+  public Optional<Section> findByName(String name) {
+    return findBy("name", name);
   }
 }

@@ -25,25 +25,30 @@ public class QuestionRepositoryImpl extends GenericJdbcRepository<Question>
   }
 
   @Override
+  protected Map<String, Object> tableValues(Question question) {
+    Map<String, Object> values = new LinkedHashMap<>();
+
+    if (Objects.nonNull(question.testId())) {
+      values.put("test_id", question.testId());
+    }
+    if (!question.questionText().isBlank()) {
+      values.put("question_text", question.questionText());
+    }
+    return values;
+  }
+
+  @Override
   public Optional<Question> findByTestId(UUID testId) {
     return findBy("test_id", testId);
   }
 
   @Override
-  public Set<Question> findAllByTestId(UUID testId) {
-    return findAllWhere(STR."test_id = \{testId}");
+  public Optional<Question> findByQuestionText(String questionText) {
+    return findBy("question_text", questionText);
   }
 
   @Override
-  protected Map<String, Object> tableValues(Question question) {
-    Map<String, Object> values = new LinkedHashMap<>();
-
-    if (!question.questionText().isBlank()) {
-      values.put("question_text", question.questionText());
-    }
-    if (Objects.nonNull(question.testId())) {
-      values.put("test_id", question.testId());
-    }
-    return values;
+  public Set<Question> findAllByTestId(UUID testId) {
+    return findAllWhere(STR."test_id = '\{testId}'");
   }
 }

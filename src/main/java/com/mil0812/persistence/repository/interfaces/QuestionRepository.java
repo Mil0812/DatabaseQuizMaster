@@ -9,6 +9,7 @@ import java.util.UUID;
 public interface QuestionRepository extends Repository<Question> {
 
   Optional<Question> findByTestId(UUID testId);
+  Optional<Question> findByQuestionText(String questionText);
 
   Set<Question> findAllByTestId(UUID testId);
 }

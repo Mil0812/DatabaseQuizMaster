@@ -7,14 +7,10 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
-public interface TestRepository extends Repository<Test>, ManyToMany {
-
-  Optional<Test> findByAuthor(UUID userId);
+public interface TestRepository extends Repository<Test> {
 
   Optional<Test> findByTestType(UUID testTypeId);
-
-  Set<Test> findAllByAuthorId(UUID userId);
-
-  Set<Section> getSections(UUID testId);
+  Optional<Test> findByTitle(String title);
+  Set<Test> findAllTests();
 
 }

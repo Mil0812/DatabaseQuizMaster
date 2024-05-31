@@ -4,28 +4,29 @@ import atlantafx.base.theme.NordLight;
 import com.mil0812.persistence.ApplicationConfig;
 import com.mil0812.persistence.connection.ConnectionManager;
 import com.mil0812.persistence.connection.DatabaseInitializer;
+import com.mil0812.persistence.entity.impl.Question;
+import com.mil0812.persistence.repository.interfaces.QuestionRepository;
 import com.mil0812.presentation.SpringFXMLLoader;
 import com.mil0812.presentation.util.FXMLLoaderResult;
-import java.nio.file.Path;
+import com.mil0812.domain.GeneralTableFiller;
 import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main extends Application {
   public static AnnotationConfigApplicationContext springContext;
   public final static Logger logger = LoggerFactory.getLogger(Main.class);
 
-    @Override
+  @Override
   public void start(Stage stage) throws Exception {
       // Підключення atlantaFX
       Application.setUserAgentStylesheet(new NordLight().getUserAgentStylesheet());
@@ -48,14 +49,21 @@ public class Main extends Application {
   }
 
   public static void main(String[] args) {
+
     springContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
     var connectionManager = springContext.getBean(ConnectionManager.class);
     var databaseInitializer = springContext.getBean(DatabaseInitializer.class);
 
+    var tester = springContext.getBean(Tester.class);
+
     try {
       //databaseInitializer.init();
-      launch(args);
-    } finally {
+      //GeneralTableFiller.fillTables();
+      //launch(args);
+
+      tester.test();
+    }
+    finally {
       connectionManager.closePool();
     }
   }

@@ -8,6 +8,7 @@ import com.mil0812.persistence.repository.interfaces.TestTypeRepository;
 import com.mil0812.persistence.repository.mappers.impl.TestTypeRowMapper;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -30,14 +31,12 @@ public class TestTypeRepositoryImpl extends GenericJdbcRepository<TestType>
     if (!testType.description().isBlank()) {
       values.put("description", testType.description());
     }
-    if (!testType.title().isBlank()) {
-      values.put("title", testType.title());
-    }
-    if (!testType.image().isBlank()) {
-      values.put("image", testType.image());
-    }
-    values.put("max_answer_count", testType.maxAnswerCount());
     values.put("correct_answer_count", testType.correctAnswerCount());
     return values;
+  }
+
+  @Override
+  public Optional<TestType> findByName(String name) {
+    return findBy("name", name);
   }
 }

@@ -1,18 +1,20 @@
 
 v
-java:S1104"YMake springContext a static final constant or non-public and provide accessors if needed.(œÔ³8úÁ‘ÿû1
+java:S1104"YMake springContext a static final constant or non-public and provide accessors if needed.(œÔ³8›¶¶îü1
 P
-java:S1444"3Make this "public static springContext" field final(œÔ³8úÁ‘ÿû1
+java:S1444"3Make this "public static springContext" field final(œÔ³8œ¶¶îü1
 b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¢„›¨8Â‘ÿû1
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¢„›¨8¹¶¶îü1
 U
-java:S14815"8Remove this unused "databaseInitializer" local variable.(¿ÌÙÅ8ô™¾‡ü1
-]	java:S1258"<This block of commented-out lines of code should be removed.(Èªş¨üÿÿÿÿ8õ™¾‡ü1
+java:S14817"8Remove this unused "databaseInitializer" local variable.(¿ÌÙÅ8â¶¶îü1
+]	java:S125<"<This block of commented-out lines of code should be removed.(Èªş¨üÿÿÿÿ8Í÷»îü1
+k
+java:S1128"IRemove this unused import 'com.mil0812.persistence.entity.impl.Question'.(ğ™ıüÿÿÿÿ8Ê¿îü1
+
+java:S1128"]Remove this unused import 'com.mil0812.persistence.repository.interfaces.QuestionRepository'.(¨Õşòøÿÿÿÿ8Ë¿îü1
+d
+java:S1128"BRemove this unused import 'com.mil0812.domain.GeneralTableFiller'.(•ĞûÙøÿÿÿÿ8Ë¿îü1
 L
-java:S1128	"/Remove this unused import 'java.nio.file.Path'.(×²êÂ8Åç„ü1
-U
-java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ8Åç„ü1
-X
-java:S1128";Remove this unused import 'javafx.scene.layout.AnchorPane'.(Ø µ8Åç„ü1
-h
-java:S1128"KRemove this unused import 'org.springframework.context.ApplicationContext'.(»Ô»¿8Åç„ü1
+java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8Ë¿îü1
+M
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8Ì¿îü1

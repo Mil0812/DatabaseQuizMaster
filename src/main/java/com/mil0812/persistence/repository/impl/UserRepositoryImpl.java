@@ -36,6 +36,9 @@ public class UserRepositoryImpl extends GenericJdbcRepository<User>
     if (!user.lastName().isBlank()) {
       values.put("lastName", user.lastName());
     }
+    if (Objects.nonNull(user.avatar())) {
+      values.put("avatar", user.avatar());
+    }
     return values;
   }
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ResultUnitOfWork extends GeneralUnitOfWork<Result> {
 
-  private final ResultRepository repository;
+  public final ResultRepository repository;
 
   protected ResultUnitOfWork(ResultRepository resultRepository) {
     super(resultRepository);

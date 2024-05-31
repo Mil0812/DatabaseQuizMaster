@@ -39,6 +39,7 @@
   -fx-background-color: #F7F9F9;
   -fx-text-fill: #b4190b;
   -fx-font-size: 17.0;
+  -fx-font-weight: bold;
   -fx-border-color: #b4190b;
   -fx-border-radius: 5;
   -fx-padding: 5;
@@ -70,12 +71,6 @@
   -fx-text-fill: #F7F9F9;
 }
 
-#label {
-  -fx-font-family: "Book Antiqua";
-  -fx-font-size: 15.0;
-  -fx-wrap-text: true;
-}
-
 .panel_with_bottom_border{
   -fx-border-color: transparent transparent #D36558 transparent;
   -fx-border-width: 0 0 2 0;
@@ -88,6 +83,12 @@
   -fx-wrap-text: true;
 }
 
+.errors_label{
+  -fx-text-fill: #b4190b;
+  -fx-font-size: 10.0;
+  -fx-wrap-text: true;
+}
+
 .answers_pane{
     -fx-background-color: #504c60;
     -fx-border-width: 3;
@@ -96,16 +97,24 @@
     -fx-pref-width: 250;
 }
 
+.variable_label{
+-fx-text-fill: #D36558;
+  -fx-font-weight: bold;
+  -fx-font-size: 27.0;
+}
+
 /*STYLES FOR TABLE_VIEW*/
 
 .table-view {
-  -fx-background-color: #504C60;
-  -fx-text-fill: #F7F9F9;
+  -fx-background-color: #F7F9F9;
+  -fx-text-fill: #504C60;
+  -fx-font-weight: bold;
   -fx-border-color: transparent;
 }
 
 .table-view .column-header-background {
   -fx-background-color: #504C60;
+  -fx-text-fill: #F7F9F9;
 }
 
 .table-view .column-header {
@@ -116,23 +125,23 @@
 }
 
 .table-view .table-row-cell {
-  -fx-background-color: #504C60;
-  -fx-text-fill: #F7F9F9;
+  -fx-background-color: #F7F9F9;
+  -fx-text-fill: #504C60;
   -fx-border-color: transparent;
 }
 
 .table-view .table-cell {
-  -fx-background-color: #504C60;
-  -fx-text-fill: #F7F9F9;
+  -fx-background-color: #F7F9F9;
+  -fx-text-fill: #504C60;
   -fx-border-color: transparent;
 }
 
 .table-view .table-cell:filled:selected {
-  -fx-background-color: #F7F9F9;
-  -fx-text-fill: #504C60;
+  -fx-background-color: #504C60;
+  -fx-text-fill: #F7F9F9;
 }
 
 .table-view .table-cell:filled:hover {
-  -fx-background-color: #F7F9F9;
-  -fx-text-fill: #504C60;
+  -fx-background-color: #504C60;
+  -fx-text-fill: #F7F9F9;
 }

@@ -12,6 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 import org.springframework.stereotype.Repository;
 
@@ -30,13 +31,13 @@ public class ResultRepositoryImpl extends GenericJdbcRepository<Result>
   }
 
   @Override
-  public Optional<Result> findBySectionId(UUID sectionId) {
-    return findBy("section_id", sectionId);
+  public Optional<Result> findByDate(Timestamp date) {
+    return findBy("date_of_test", date);
   }
 
   @Override
-  public Optional<Result> findByDate(Timestamp date) {
-    return findBy("date_of_test", date);
+  public Set<Result> findAllWhere(String whereQuery) {
+    return super.findAllWhere(whereQuery);
   }
 
   @Override
@@ -49,13 +50,10 @@ public class ResultRepositoryImpl extends GenericJdbcRepository<Result>
     if (Objects.nonNull(result.testId())) {
       values.put("test_id", result.testId());
     }
-    if (Objects.nonNull(result.sectionId())) {
-      values.put("section_id", result.sectionId());
-    }
     values.put("grade", result.grade());
-    values.put("date_of_test",
-        result.dateOfTest().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
+    if (Objects.nonNull(result.dateOfTest())) {
+      values.put("date_of_test", result.getFormattedDateOfTest());
+    }
     return values;
   }
 }

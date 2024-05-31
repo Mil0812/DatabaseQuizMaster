@@ -20,6 +20,8 @@ module com.mil0812 {
   opens com.mil0812 to javafx.fxml;
   opens com.mil0812.persistence to spring.core, spring.beans, spring.context;
   opens com.mil0812.presentation.util to spring.core, spring.beans, spring.context;
+  opens com.mil0812.domain to spring.core, spring.beans, spring.context;
+  opens com.mil0812.domain.impl to spring.core, spring.beans, spring.context;
   opens com.mil0812.persistence.unit_of_work.impl to spring.core;
   opens com.mil0812.presentation to spring.core, javafx.fxml;
   opens com.mil0812.presentation.controllers to javafx.fxml, spring.core;
@@ -28,7 +30,6 @@ module com.mil0812 {
   exports com.mil0812;
   exports com.mil0812.persistence.entity;
   exports com.mil0812.persistence.entity.impl;
-  exports com.mil0812.persistence.entity.proxy.impl;
   exports com.mil0812.persistence.connection;
   exports com.mil0812.persistence.repository;
   exports com.mil0812.persistence.repository.impl;
@@ -40,4 +41,6 @@ module com.mil0812 {
   exports com.mil0812.presentation;
   exports com.mil0812.presentation.controllers;
   exports com.mil0812.presentation.util;
+  exports com.mil0812.domain;
+  exports com.mil0812.domain.impl;
 }

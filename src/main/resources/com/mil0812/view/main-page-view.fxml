@@ -23,21 +23,18 @@
    <AnchorPane fx:id="topPanel" prefHeight="100.0" prefWidth="900.0" visible="false">
       <children>
          <ImageView fx:id="quizImageSmall" fitHeight="100.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="avatarImage" fitHeight="100.0" fitWidth="147.0" layoutX="740.0" pickOnBounds="true" preserveRatio="true" />
-         <Label fx:id="userNameLabel" layoutX="538.0" layoutY="30.0" prefHeight="36.0" prefWidth="216.0" text="User's name and surname" textAlignment="CENTER" />
+         <ImageView fx:id="avatarImage" fitHeight="100.0" fitWidth="147.0" layoutX="740.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand" />
+         <Label fx:id="userNameLabel" layoutX="538.0" layoutY="30.0" prefHeight="36.0" prefWidth="216.0"
+           textAlignment="CENTER" styleClass="variable_label"/>
       </children></AnchorPane>
 
    <AnchorPane fx:id="topPanelForTestingMode" visible="false" prefHeight="70.0" prefWidth="900.0" styleClass="panel_with_bottom_border">
       <children>
-         <Label fx:id="quizTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="49.0" prefHeight="46.0" prefWidth="466.0" style="-fx-text-fill: #D36558; -fx-font-weight: bold;" text="~ Назва тесту ~">
-            <font>
-               <Font size="20.0" />
-            </font>
+         <Label fx:id="quizTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="49.0"
+           prefHeight="46.0" prefWidth="550.0" styleClass="variable_label" text="~ Назва тесту ~">
          </Label>
-         <Label fx:id="quizDescription" alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="90.0" prefHeight="46.0" prefWidth="466.0" style="-fx-text-fill: #504C60;" text="* Опис тесту">
-            <font>
-               <Font size="13.0" />
-            </font>
+         <Label fx:id="quizDescription" alignment="CENTER" contentDisplay="CENTER" layoutX="180.0"
+           layoutY="90.0" prefHeight="46.0" prefWidth="550.0" styleClass="dark_label" style="-fx-font-size: 18" text="* Опис тесту">
          </Label>
       </children>
    </AnchorPane>
