@@ -59,9 +59,9 @@ public class Main extends Application {
     try {
       //databaseInitializer.init();
       //GeneralTableFiller.fillTables();
-      //launch(args);
+      launch(args);
 
-      tester.test();
+      //tester.test();
     }
     finally {
       connectionManager.closePool();

@@ -6,9 +6,10 @@
 
 
 <?import javafx.scene.control.Button?>
-<AnchorPane prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: #BC886D;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mil0812.presentation.controllers.TestsPageController">
+<AnchorPane prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: #BC886D;" xmlns="http://javafx.com/javafx/21"
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mil0812.presentation.controllers.TestsPageController">
    <children>
-      <TableView fx:id="testsTable" layoutX="50.0" layoutY="39.0" prefHeight="316.0" prefWidth="850.0" styleClass="table-view">
+      <TableView fx:id="testsTable" layoutX="15.0" layoutY="39.0" prefHeight="316.0" prefWidth="870.0" styleClass="table-view">
         <columns>
           <TableColumn fx:id="testTitleColumn" prefWidth="300.0000305175781" text="Назва тесту"/>
           <TableColumn fx:id="testSectionColumn" prefWidth="231.99996948242188" text="Розділ" />
@@ -16,6 +17,5 @@
             <TableColumn fx:id="questionCountColumn" prefWidth="137.60009765625" text="Кількість питань" />
         </columns>
       </TableView>
-     <Button fx:id="test">TEST</Button>
    </children>
 </AnchorPane>

@@ -12,4 +12,5 @@ public interface ResultRepository extends Repository<Result> {
   Optional<Result> findByTestId(UUID testId);
   Optional<Result> findByDate(Timestamp date);
   Set<Result> findAll(int offset, int limit, String sortColumn, boolean ascending);
+  Set<Result> findAllWhere(String whereQuery);
 }

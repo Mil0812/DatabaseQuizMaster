@@ -95,6 +95,15 @@
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-pref-width: 250;
+    -cursor: hand;
+}
+.selected_answers_pane{
+  -fx-background-color: #ffda79;
+  -fx-border-color: #504c60;
+  -fx-border-width: 3;
+  -fx-border-radius: 10;
+  -fx-background-radius: 10;
+  -fx-text-fill: #504c60;
 }
 
 .variable_label{

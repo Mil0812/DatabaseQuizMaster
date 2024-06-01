@@ -15,8 +15,8 @@
       <VBox layoutX="58.0" layoutY="101.0" prefHeight="196.0" prefWidth="426.0" style="-fx-cursor: hand">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="Отож, тест пройдено!" />
-            <Label fx:id="labelWithResultPoints" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="Результат: 110 зі 150 балів" />
-            <Label fx:id="labelWithSummaries" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="450.0" maxWidth="420" style="-fx-font-weight: bold;" styleClass="light_text_small" text="Нот бед! Продовжуй в тому ж дусі та удосконалюй свої результати ще більше!"/>
+            <Label fx:id="labelWithResultPoints" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" />
+            <Label fx:id="labelWithSummaries" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small"/>
          </children>
       </VBox>
    </children>

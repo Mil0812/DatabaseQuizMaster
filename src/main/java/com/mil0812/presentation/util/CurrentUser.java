@@ -5,6 +5,7 @@ import java.io.ByteArrayInputStream;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
+import org.springframework.stereotype.Component;
 
 /**
  * Паттерн "Observer"

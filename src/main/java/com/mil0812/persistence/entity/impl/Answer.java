@@ -7,7 +7,7 @@ public record Answer(
     UUID id,
     UUID questionId,
     String answerText,
-    boolean correctness
+    boolean correct
 ) implements Entity, Comparable<Answer> {
 
   @Override

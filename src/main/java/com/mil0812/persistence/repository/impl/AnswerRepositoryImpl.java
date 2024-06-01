@@ -28,8 +28,13 @@ public class AnswerRepositoryImpl extends GenericJdbcRepository<Answer>
     return findBy("question_id", questionId);
   }
 
+  @Override
+  public Optional<Answer> findByAnswerText(String answerText) {
+    return findBy("answer_text", answerText);
+  }
+
   public Set<Answer> findAllByQuestionId(UUID questionId) {
-    return findAllWhere(STR."question_id = \{questionId}");
+    return findAllWhere(STR."question_id = '\{questionId}'");
   }
 
   @Override
@@ -42,7 +47,7 @@ public class AnswerRepositoryImpl extends GenericJdbcRepository<Answer>
     if (!answer.answerText().isBlank()) {
       values.put("answer_text", answer.answerText());
     }
-      values.put("correctness", answer.correctness());
+      values.put("correct", answer.correct());
     return values;
   }
 }

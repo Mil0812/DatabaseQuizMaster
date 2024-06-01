@@ -16,6 +16,8 @@ public class CurrentTest {
   private final SimpleStringProperty testName = new SimpleStringProperty();
   private final SimpleStringProperty testDescription = new SimpleStringProperty();
   private final SimpleIntegerProperty questionCount = new SimpleIntegerProperty();
+  private final SimpleIntegerProperty maxPointsCount = new SimpleIntegerProperty();
+  private final SimpleIntegerProperty userGrade = new SimpleIntegerProperty();
 
   @Autowired
   private TestTypeRepository testTypeRepository;
@@ -34,7 +36,13 @@ public class CurrentTest {
       setTestName(test.title());
       setQuestionCount(test.questionCount());
       setTestDescriptionFromTestType(test.testTypeId());
+      calculateMaxPointsCount();
     }
+  }
+
+  private void calculateMaxPointsCount() {
+    int pointsPerQuestion = 10;
+    setMaxPointsCount(getQuestionCount() * pointsPerQuestion);
   }
 
   private void setTestDescriptionFromTestType(UUID testTypeId) {
@@ -82,8 +90,29 @@ public class CurrentTest {
   public int getQuestionCount() {
     return questionCount.get();
   }
-
   public void setQuestionCount(int questionCount) {
     this.questionCount.set(questionCount);
+    calculateMaxPointsCount(); // Recalculate max points count whenever question count is updated
   }
+
+  public SimpleIntegerProperty maxPointsCountProperty() {
+    return maxPointsCount;
+  }
+
+  public int getMaxPointsCount() {
+    return maxPointsCount.get();
+  }
+
+  public void setMaxPointsCount(int maxPointsCount) {
+    this.maxPointsCount.set(maxPointsCount);
+  }
+
+  public void setUserGrade(int userGrade){
+    this.userGrade.set(userGrade);
+  }
+  public int getUserGrade() {
+    return userGrade.get();
+  }
+
+
 }

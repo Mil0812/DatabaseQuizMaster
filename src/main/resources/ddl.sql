@@ -67,7 +67,7 @@ CREATE TABLE answer
     id          UUID PRIMARY KEY,
     question_id UUID        NOT NULL,
     answer_text VARCHAR(50) NOT NULL,
-    correctness BOOLEAN,
+    correct BOOLEAN,
     CONSTRAINT answer_question_id_fk FOREIGN KEY (question_id) REFERENCES question (id)
         ON DELETE CASCADE
         ON UPDATE CASCADE

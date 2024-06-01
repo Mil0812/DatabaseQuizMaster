@@ -20,7 +20,7 @@ public class AnswerRowMapper extends IdChecker implements RowMapper<Answer> {
         id,
         questionId,
         rs.getString("answer_text"),
-        rs.getBoolean("correctness")
+        rs.getBoolean("correct")
     );
   }
 }

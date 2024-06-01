@@ -16,11 +16,10 @@
    <Polyline fill="#bc886d" layoutX="356.0" layoutY="297.0" points="64.80001831054688, -1.0, 35.199981689453125, 6.800018310546875, -15.199981689453125, 19.600006103515625, 4.999969482421875, -44.399993896484375" strokeType="INSIDE" />
    <VBox layoutX="361.0" layoutY="100.0" prefHeight="196.0" prefWidth="450.0" style="-fx-cursor: hand">
       <children>
-         <Label fx:id="labelWithFirstName" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="Вітаю, Фанні!" />
-         <Label fx:id="labelWithTestTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="Це тест під назвою “Основні поняття про SQL”." />
-         <Label fx:id="labelWithQuestionCount" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="В ньому 7 запитань," />
-         <Label fx:id="labelWithTestType" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="кожне може мати декілька варіантів відповіді." />
-         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" text="Успіхів у проходженні!" >
+         <Label fx:id="labelWithFirstName" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" />
+         <Label fx:id="labelWithTestTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" />
+         <Label fx:id="labelWithQuestionCount" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold; -fx-wrap-text: true" styleClass="light_text_small" />
+         <Label fx:id="labelWithWishes" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="450.0" style="-fx-font-weight: bold;" styleClass="light_text_small" >
             <tooltip>
                <Tooltip text="Натисніть, щоб продовжити" />
             </tooltip>

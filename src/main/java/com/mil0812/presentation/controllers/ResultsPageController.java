@@ -6,6 +6,7 @@ import com.mil0812.persistence.entity.impl.Test;
 import com.mil0812.persistence.entity.impl.TestType;
 import com.mil0812.persistence.repository.interfaces.ResultRepository;
 import com.mil0812.persistence.repository.interfaces.TestRepository;
+import com.mil0812.presentation.util.CurrentUser;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -56,7 +57,7 @@ public class ResultsPageController {
   }
 
   private ObservableList<Result> getTestData() {
-    Set<Result> results = resultRepository.findAll();
+    Set<Result> results = resultRepository.findAllWhere(STR."user_id='\{CurrentUser.getInstance().getCurrentUser().id()}'");
     return FXCollections.observableArrayList(results);
   }
 

@@ -246,8 +246,8 @@ public abstract class GenericJdbcRepository<T extends Entity> implements Reposit
                 VALUES (\{placeholders})
         """;
 
-    if (attributes.stream().anyMatch(a -> a.equals("created_at"))) {
-      values.put("created_at", LocalDateTime.now());
+    if (attributes.stream().anyMatch(a -> a.equals("date_of_test"))) {
+      values.put("date_of_test", LocalDateTime.now());
     }
     int idIndex = 0;
 
@@ -258,7 +258,7 @@ public abstract class GenericJdbcRepository<T extends Entity> implements Reposit
     var attributes = values.keySet();
     String attributesString =
         attributes.stream()
-            .filter(a -> !a.equals("created_at") && !a.equals("id"))
+            .filter(a -> !a.equals("date_of_test") && !a.equals("id"))
             .map(a -> STR."\{a} = ?")
             .collect(Collectors.joining(", "));
     String sql = STR."""
