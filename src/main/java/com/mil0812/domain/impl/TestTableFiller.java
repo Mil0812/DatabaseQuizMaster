@@ -52,6 +52,27 @@ public class TestTableFiller implements TableFiller {
             5
         )
     );
+
+    persistenceContext.tests.registerNew(
+        new Test(
+            null,
+            currentTestTypeId(TestTypesNames.ONE_RIGHT_ANSWER.getName()),
+            currentSectionId(SectionsNames.TABLES.getName()),
+            TestsNames.TABLES_IN_DATABASES.getName(),
+            5
+        )
+    );
+
+    persistenceContext.tests.registerNew(
+        new Test(
+            null,
+            currentTestTypeId(TestTypesNames.ONE_RIGHT_ANSWER.getName()),
+            currentSectionId(SectionsNames.SQL.getName()),
+            TestsNames.GENERAL_ABOUT_SQL.getName(),
+            7
+        )
+    );
+
     persistenceContext.tests.commit();
   }
 

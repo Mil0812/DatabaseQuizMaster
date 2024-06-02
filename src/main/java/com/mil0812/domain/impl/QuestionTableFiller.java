@@ -125,6 +125,98 @@ public class QuestionTableFiller implements TableFiller {
         )
     );
     persistenceContext.questions.commit();
+
+    // "Таблиці бази даних" | 5 питань
+
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.TABLES_IN_DATABASES.getName()),
+            QuestionsNames.TABLES_IN_DB_FIRST_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.TABLES_IN_DATABASES.getName()),
+            QuestionsNames.TABLES_IN_DB_SECOND_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.TABLES_IN_DATABASES.getName()),
+            QuestionsNames.TABLES_IN_DB_THIRD_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.TABLES_IN_DATABASES.getName()),
+            QuestionsNames.TABLES_IN_DB_FORTH_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.TABLES_IN_DATABASES.getName()),
+            QuestionsNames.TABLES_IN_DB_FIFTH_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.commit();
+
+    // "Основні команди SQL" | 7 питань
+
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.GENERAL_ABOUT_SQL.getName()),
+            QuestionsNames.SQL_COMMANDS_FIRST_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.GENERAL_ABOUT_SQL.getName()),
+            QuestionsNames.SQL_COMMANDS_SECOND_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.GENERAL_ABOUT_SQL.getName()),
+            QuestionsNames.SQL_COMMANDS_THIRD_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.GENERAL_ABOUT_SQL.getName()),
+            QuestionsNames.SQL_COMMANDS_FORTH_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.GENERAL_ABOUT_SQL.getName()),
+            QuestionsNames.SQL_COMMANDS_FIFTH_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.GENERAL_ABOUT_SQL.getName()),
+            QuestionsNames.SQL_COMMANDS_SIXTH_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.registerNew(
+        new Question(
+            null,
+            currentTestId(TestsNames.GENERAL_ABOUT_SQL.getName()),
+            QuestionsNames.SQL_COMMANDS_SEVENTH_QUESTION.getName()
+        )
+    );
+    persistenceContext.questions.commit();
   }
 
   private UUID currentTestId(String testTitle) {
