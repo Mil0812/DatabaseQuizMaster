@@ -22,8 +22,8 @@
   </ImageView>
    <AnchorPane fx:id="topPanel" prefHeight="100.0" prefWidth="900.0" visible="false">
       <children>
-         <ImageView fx:id="quizImageSmall" fitHeight="100.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="avatarImage" fitHeight="100.0" fitWidth="147.0" layoutX="740.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand" />
+         <ImageView fx:id="quizImageViewSmall" fitHeight="100.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="avatarImageView" fitHeight="100.0" fitWidth="147.0" layoutX="740.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand" />
          <Label fx:id="userNameLabel" layoutX="538.0" layoutY="30.0" prefHeight="36.0" prefWidth="216.0"
            textAlignment="CENTER" styleClass="variable_label"/>
       </children></AnchorPane>

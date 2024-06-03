@@ -161,13 +161,6 @@ public class QuestionTableFiller implements TableFiller {
             QuestionsNames.TABLES_IN_DB_FORTH_QUESTION.getName()
         )
     );
-    persistenceContext.questions.registerNew(
-        new Question(
-            null,
-            currentTestId(TestsNames.TABLES_IN_DATABASES.getName()),
-            QuestionsNames.TABLES_IN_DB_FIFTH_QUESTION.getName()
-        )
-    );
     persistenceContext.questions.commit();
 
     // "Основні команди SQL" | 7 питань

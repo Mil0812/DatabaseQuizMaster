@@ -53,7 +53,6 @@ public class AnswerTableFiller implements TableFiller {
     String secondQuestionNameTables = QuestionsNames.TABLES_IN_DB_SECOND_QUESTION.getName();
     String thirdQuestionNameTables = QuestionsNames.TABLES_IN_DB_THIRD_QUESTION.getName();
     String forthQuestionNameTables = QuestionsNames.TABLES_IN_DB_FORTH_QUESTION.getName();
-    String fifthQuestionNameTables = QuestionsNames.TABLES_IN_DB_FIFTH_QUESTION.getName();
 
     String firstQuestionNameSQL = QuestionsNames.SQL_COMMANDS_FIRST_QUESTION.getName();
     String secondQuestionNameSQL = QuestionsNames.SQL_COMMANDS_SECOND_QUESTION.getName();
@@ -528,46 +527,11 @@ public class AnswerTableFiller implements TableFiller {
     );
     persistenceContext.answers.commit();
 
-    // Тест "Таблиці бази даних" з одним варіантом відповіді. Питання #2
-    persistenceContext.answers.registerNew(
-        new Answer(
-            null,
-            currentQuestionId(secondQuestionNameTables),
-            "Комплекс програм, що забезпечує взаємодію користувача з базою даних",
-            false
-        )
-    );
-    persistenceContext.answers.registerNew(
-        new Answer(
-            null,
-            currentQuestionId(secondQuestionNameTables),
-            "Програми для забезпечення взаємодії користувача з даними",
-            true
-        )
-    );
-    persistenceContext.answers.registerNew(
-        new Answer(
-            null,
-            currentQuestionId(secondQuestionNameTables),
-            "Програми для роботи з текстовими файлами",
-            false
-        )
-    );
-    persistenceContext.answers.registerNew(
-        new Answer(
-            null,
-            currentQuestionId(secondQuestionNameTables),
-            "Програми для взаємодії користувачів з операційною системою",
-            false
-        )
-    );
-    persistenceContext.answers.commit();
-
     // Тест "Таблиці бази даних" з одним варіантом відповіді. Питання #3
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(thirdQuestionNameTables),
+            currentQuestionId(secondQuestionNameTables),
             "Поля",
             false
         )
@@ -575,7 +539,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(thirdQuestionNameTables),
+            currentQuestionId(secondQuestionNameTables),
             "Записи",
             true
         )
@@ -583,7 +547,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(thirdQuestionNameTables),
+            currentQuestionId(secondQuestionNameTables),
             "Атрибути",
             false
         )
@@ -591,7 +555,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(thirdQuestionNameTables),
+            currentQuestionId(secondQuestionNameTables),
             "Відношення",
             false
         )
@@ -602,7 +566,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(forthQuestionNameTables),
+            currentQuestionId(thirdQuestionNameTables),
             "Поля",
             false
         )
@@ -610,7 +574,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(forthQuestionNameTables),
+            currentQuestionId(thirdQuestionNameTables),
             "Записи",
             true
         )
@@ -618,7 +582,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(forthQuestionNameTables),
+            currentQuestionId(thirdQuestionNameTables),
             "Атрибути",
             false
         )
@@ -626,7 +590,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(forthQuestionNameTables),
+            currentQuestionId(thirdQuestionNameTables),
             "Відношення",
             false
         )
@@ -637,7 +601,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(fifthQuestionNameTables),
+            currentQuestionId(forthQuestionNameTables),
             "Таблиці",
             true
         )
@@ -645,7 +609,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(fifthQuestionNameTables),
+            currentQuestionId(forthQuestionNameTables),
             "Форми",
             false
         )
@@ -653,7 +617,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(fifthQuestionNameTables),
+            currentQuestionId(forthQuestionNameTables),
             "Запити",
             false
         )
@@ -661,7 +625,7 @@ public class AnswerTableFiller implements TableFiller {
     persistenceContext.answers.registerNew(
         new Answer(
             null,
-            currentQuestionId(fifthQuestionNameTables),
+            currentQuestionId(forthQuestionNameTables),
             "Звіти",
             false
         )

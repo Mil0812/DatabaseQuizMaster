@@ -171,11 +171,5 @@ s
 Csrc/main/java/com/mil0812/domain/entities_names/TestTypesNames.java,3\8\38a92967f427079168e54f11dc4157ca5f223de2
 l
 <src/main/java/com/mil0812/presentation/util/CurrentTest.java,3\9\39e67c686eeb85ea70dbf9d27982abd1766be40f
-U
-%src/main/java/com/mil0812/Tester.java,f\a\faa331ff109710eeb75d2d2b236bf47e9c8ce1ec
-m
-=src/test/java/com/mil0812/persistense/UserRepositoryTest.java,3\a\3aed05e8addfb6828cae6aa191a30828f84b048b
-w
-Gsrc/test/java/com/mil0812/persistense/init/FakeDatabaseInitializer.java,2\3\23c669244b46f51225beeb2ef71cd84f72ed0838
 l
 <src/main/java/com/mil0812/presentation/util/ImageLoader.java,b\6\b6d2f84e3d9c95e755fbc609582522738d59fd90

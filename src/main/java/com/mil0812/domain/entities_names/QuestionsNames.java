@@ -20,10 +20,9 @@ public enum QuestionsNames {
 
   // Test "Tables in database" | One right answer
   TABLES_IN_DB_FIRST_QUESTION("Яка основна характеристика полів?"),
-  TABLES_IN_DB_SECOND_QUESTION("Що являє собою СУБД?"),
-  TABLES_IN_DB_THIRD_QUESTION("Як називаються стовпчики в таблицях бази даних?"),
-  TABLES_IN_DB_FORTH_QUESTION("Як називаються рядки в таблицях бази даних?"),
-  TABLES_IN_DB_FIFTH_QUESTION("Об’єкти, безпосередньо призначені для зберігання інформації?"),
+  TABLES_IN_DB_SECOND_QUESTION("Як називаються стовпчики в таблицях бази даних?"),
+  TABLES_IN_DB_THIRD_QUESTION("Як називаються рядки в таблицях бази даних?"),
+  TABLES_IN_DB_FORTH_QUESTION("Об’єкти, безпосередньо призначені для зберігання інформації?"),
 
   // Test "SQL commands" | One right answer
   SQL_COMMANDS_FIRST_QUESTION("Яка команда SQL використовується для вибору даних з бази даних?"),

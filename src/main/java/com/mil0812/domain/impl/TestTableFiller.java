@@ -65,7 +65,7 @@ public class TestTableFiller implements TableFiller {
             currentTestTypeId(TestTypesNames.ONE_RIGHT_ANSWER.getName()),
             currentSectionId(SectionsNames.TABLES.getName()),
             TestsNames.TABLES_IN_DATABASES.getName(),
-            5
+            4
         )
     );
 

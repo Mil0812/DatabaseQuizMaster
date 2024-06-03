@@ -1,12 +1,10 @@
 package com.mil0812.presentation.controllers;
 
-import com.mil0812.Main;
 import com.mil0812.persistence.entity.impl.User;
-import com.mil0812.persistence.repository.interfaces.UserRepository;
 import com.mil0812.persistence.unit_of_work.impl.UserUnitOfWork;
 import com.mil0812.presentation.util.AlertUtil;
 import com.mil0812.presentation.util.CurrentUser;
-import com.mil0812.presentation.util.PageSwitcher;
+import com.mil0812.presentation.util.ImageLoader;
 import com.mil0812.presentation.util.PasswordHashing;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,7 +13,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,18 +20,16 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.w3c.dom.events.MouseEvent;
 
 @Component
 public class RegistrationPageController extends ChildController {
 
   @FXML
-  public ImageView backArrowImage;
+  public ImageView backArrowImageView;
   @FXML
   public Label loginErrorsLabel;
   @FXML
@@ -84,16 +79,12 @@ public class RegistrationPageController extends ChildController {
     signUpButton.setOnMouseClicked(mouseEvent -> signUp());
     initializeElements();
 
-    try {
-      backArrowImage.setImage(new Image(Objects.requireNonNull(
-          Objects.requireNonNull(getClass().getResource("/com/mil0812/images/back.png"))
-              .toExternalForm())));
-    }
-    catch (Exception e){
-      logger.error(STR."Помилка при завантаженні зображень... \{e}");
+    Image backArrowImage = ImageLoader.loadImage("/com/mil0812/images/back.png");
+    if (backArrowImage != null) {
+      backArrowImageView.setImage(backArrowImage);
     }
 
-    backArrowImage.setOnMouseClicked(mouseEvent -> pageSwitcher.switchPane
+    backArrowImageView.setOnMouseClicked(mouseEvent -> pageSwitcher.switchPane
         ("/com/mil0812/view/enter-page-view.fxml"));
     // Observer - лістенери на зміну вмісту текст філдів
     loginTextField.textProperty().addListener((obs, oldText, newText) -> {

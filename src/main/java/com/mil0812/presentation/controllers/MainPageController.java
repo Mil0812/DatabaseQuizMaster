@@ -2,7 +2,6 @@ package com.mil0812.presentation.controllers;
 
 import static com.mil0812.Main.springContext;
 
-import com.mil0812.Main;
 import com.mil0812.persistence.entity.impl.User;
 import com.mil0812.persistence.unit_of_work.impl.UserUnitOfWork;
 import com.mil0812.presentation.SpringFXMLLoader;
@@ -14,17 +13,13 @@ import com.mil0812.presentation.util.PageSwitcher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Objects;
-import java.util.Set;
 import java.util.UUID;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -54,9 +49,9 @@ public class MainPageController implements PageSwitcher{
   private AnchorPane topPanel;
 
   @FXML
-  private ImageView avatarImage;
+  private ImageView avatarImageView;
   @FXML
-  private ImageView quizImageSmall;
+  private ImageView quizImageViewSmall;
   @FXML
   private Label userNameLabel;
   @FXML
@@ -82,6 +77,12 @@ public class MainPageController implements PageSwitcher{
 
   @FXML
   void initialize() {
+    Image quizImage = ImageLoader.loadImage("/com/mil0812/images/quiz.png");
+    if (quizImage != null) {
+      quizImageView.setImage(quizImage);
+      quizImageViewSmall.setImage(quizImage);
+    }
+/*
     try {
       quizImageView.setImage(new Image(Objects.requireNonNull(
           Objects.requireNonNull(getClass().getResource("/com/mil0812/images/quiz.png"))
@@ -91,7 +92,7 @@ public class MainPageController implements PageSwitcher{
               .toExternalForm())));
     } catch (Exception e) {
       logger.error(STR."Помилка при завантаженні зображення: \{e}");
-    }
+    }*/
 
     switchPane("/com/mil0812/view/enter-page-view.fxml");
 
@@ -99,7 +100,6 @@ public class MainPageController implements PageSwitcher{
       mainPageButton.setOnMouseClicked(mouseEvent -> {
         highlightButton(mainPageButton);
         switchPane("/com/mil0812/view/welcome-view.fxml");
-
       });
 
       testsPageButton.setOnMouseClicked(mouseEvent -> {
@@ -119,16 +119,15 @@ public class MainPageController implements PageSwitcher{
 
     updateUserData();
 
-    avatarImage.setOnMouseClicked(mouseEvent1 -> uploadAvatar());
+    avatarImageView.setOnMouseClicked(mouseEvent -> uploadAvatar());
 
     //Subscription)
     CurrentUser.getInstance().userAvatarProperty().addListener((observable, oldImage, newImage) -> {
       if (newImage != null) {
-        avatarImage.setImage(newImage);
+        avatarImageView.setImage(newImage);
         //Ім'я
         userNameLabel.setText(STR."\{CurrentUser.getInstance().getCurrentUser()
             .firstName()} \{CurrentUser.getInstance().getCurrentUser().lastName()}");
-
       }
     });
   }
@@ -138,7 +137,7 @@ public class MainPageController implements PageSwitcher{
       Image currentUserAvatar = CurrentUser.getInstance().getCurrentUserAvatar();
 
       if (currentUserAvatar != null) {
-        avatarImage.setImage(currentUserAvatar);
+        avatarImageView.setImage(currentUserAvatar);
       }
 
     } catch (Exception e) {
@@ -152,11 +151,11 @@ public class MainPageController implements PageSwitcher{
       fileChooser.getExtensionFilters().addAll(
           new ExtensionFilter("Файли зображення", "*.png", "*.jpg")
       );
-      File selectedFile = fileChooser.showOpenDialog(avatarImage.getScene().getWindow());
+      File selectedFile = fileChooser.showOpenDialog(avatarImageView.getScene().getWindow());
       if (selectedFile != null) {
         selectedAvatarPath = selectedFile.getPath();
         Image image = new Image(selectedFile.toURI().toString());
-        avatarImage.setImage(image);
+        avatarImageView.setImage(image);
         avatarInBytes = readImageToBytes(selectedFile);
 
         //Оновлення юзера
@@ -220,14 +219,6 @@ public class MainPageController implements PageSwitcher{
     activeButton.getStyleClass().add("buttons_inverted");
 
   }
-
-  public void updateLayoutForEnterAndAuthorizationPages() {
-    quizImageView.setVisible(true);
-    topPanel.setVisible(false);
-    bottomPanel.setVisible(false);
-    mainArea.setLayoutY(210.0);
-  }
-
   public void updateLayoutForCollectorPage() {
     quizImageView.setVisible(false);
     topPanel.setVisible(true);

@@ -22,7 +22,7 @@
             </Label>
             <Label fx:id="passwordErrorsLabel" layoutX="488.0" layoutY="215.0" maxWidth="250.0" styleClass="errors_label">
             </Label>
-            <ImageView fx:id="backArrowImage" fitHeight="76.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fx:id="backArrowImageView" fitHeight="76.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
             </ImageView>
             <Label fx:id="allErrorsLabel" layoutX="401.0" layoutY="230.0" maxWidth="250.0" styleClass="errors_label" />
          </children>
