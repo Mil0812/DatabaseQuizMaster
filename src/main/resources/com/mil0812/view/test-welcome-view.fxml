@@ -11,7 +11,7 @@
 
 <?import javafx.scene.control.Tooltip?>
 <AnchorPane fx:id="welcomePane" prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: #F7F9F9" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mil0812.presentation.controllers.TestWelcomePageController">
-   <ImageView fx:id="girlImage" fitHeight="373.0" fitWidth="304.0" layoutX="35.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="girlImageView" fitHeight="373.0" fitWidth="304.0" layoutX="35.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bc886d" height="196.0" layoutX="361.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="450.0" />
    <Polyline fill="#bc886d" layoutX="356.0" layoutY="297.0" points="64.80001831054688, -1.0, 35.199981689453125, 6.800018310546875, -15.199981689453125, 19.600006103515625, 4.999969482421875, -44.399993896484375" strokeType="INSIDE" />
    <VBox layoutX="361.0" layoutY="100.0" prefHeight="196.0" prefWidth="450.0" style="-fx-cursor: hand">

@@ -9,8 +9,11 @@ import com.mil0812.persistence.entity.impl.Test;
 import com.mil0812.persistence.entity.impl.TestType;
 import com.mil0812.persistence.repository.interfaces.TestRepository;
 import com.mil0812.persistence.unit_of_work.PersistenceContext;
+import com.mil0812.presentation.util.ImageLoader;
 import java.util.Optional;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +21,10 @@ import org.springframework.stereotype.Component;
 @Order(4)
 public class QuestionTableFiller implements TableFiller {
   private final TestRepository testRepository;
-
   private final PersistenceContext persistenceContext;
+
+  final static Logger logger = LoggerFactory.getLogger(QuestionTableFiller.class);
+
 
   public QuestionTableFiller(TestRepository testRepository, PersistenceContext persistenceContext) {
     this.testRepository = testRepository;
@@ -227,7 +232,7 @@ public class QuestionTableFiller implements TableFiller {
       return currentTest.get().id();
     }
     catch (Exception e){
-      Main.logger.error(STR."Не вдалося отримати тест через назву: \{e}");
+      logger.error(STR."Не вдалося отримати тест через назву: \{e}");
       return null;
     }
   }

@@ -12,8 +12,11 @@ import com.mil0812.persistence.repository.interfaces.SectionRepository;
 import com.mil0812.persistence.repository.interfaces.TestTypeRepository;
 import com.mil0812.persistence.unit_of_work.PersistenceContext;
 import com.mil0812.persistence.unit_of_work.impl.TestTypeUnitOfWork;
+import com.mil0812.presentation.util.ImageLoader;
 import java.util.Optional;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +26,9 @@ public class TestTableFiller implements TableFiller {
   private final TestTypeRepository testTypeRepository;
   private final SectionRepository sectionRepository;
   private final PersistenceContext persistenceContext;
+
+  final static Logger logger = LoggerFactory.getLogger(TestTableFiller.class);
+
 
   public TestTableFiller(TestTypeRepository testTypeRepository, SectionRepository sectionRepository, PersistenceContext persistenceContext) {
     this.testTypeRepository = testTypeRepository;
@@ -84,7 +90,7 @@ public class TestTableFiller implements TableFiller {
       return currentTestType.get().id();
     }
     catch (Exception e){
-      Main.logger.error(STR."Не вдалося отримати тип тесту через назву: \{e}");
+      logger.error(STR."Не вдалося отримати тип тесту через назву: \{e}");
       return null;
     }
   }
@@ -97,7 +103,7 @@ public class TestTableFiller implements TableFiller {
       return currentSection.get().id();
     }
     catch (Exception e){
-      Main.logger.error(STR."Не вдалося отримати розділ тесту через назву: \{e}");
+      logger.error(STR."Не вдалося отримати розділ тесту через назву: \{e}");
       return null;
     }
   }

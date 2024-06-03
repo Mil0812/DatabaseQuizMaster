@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: #F7F9F9" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mil0812.presentation.controllers.ActiveTestingPageController">
-  <ImageView fx:id="backArrowOnQuiz" fitHeight="70.0" fitWidth="70.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" />
+  <ImageView fx:id="backArrowImageView" fitHeight="70.0" fitWidth="70.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" />
   <HBox fx:id="countPanel" alignment="CENTER" layoutX="740.0" layoutY="38.0" prefHeight="67.0" prefWidth="147.0" style="-fx-spacing: 10;">
     <children>
       <Label fx:id="currentQuestionLabel" styleClass="dark_label" text="1" />
@@ -24,7 +24,7 @@
   </HBox>
   <VBox fx:id="quizArea" layoutX="430.0" layoutY="102.0" prefHeight="322.0" prefWidth="362.0">
   </VBox>
-  <ImageView fx:id="girlImage" fitHeight="252.0" fitWidth="238.0" layoutX="24.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true" />
+  <ImageView fx:id="girlImageView" fitHeight="252.0" fitWidth="238.0" layoutX="24.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true" />
   <Button fx:id="confirmButton" layoutX="665.0" layoutY="424.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="127.0" styleClass="buttons_small" text="Відповісти" />
   <Button fx:id="nextQuestionButton" layoutX="500.0" layoutY="424.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" styleClass="buttons_small" text="Наступне питання" visible="false" />
   <Pane fx:id="dialogPane" layoutX="233.0" layoutY="165.0" prefHeight="67.0" prefWidth="167.0" visible="false">

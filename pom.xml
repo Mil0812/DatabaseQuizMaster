@@ -112,12 +112,12 @@
       <scope>test</scope>
     </dependency>
 
-  <!--Atlanta-->
-  <dependency>
-    <groupId>io.github.mkpaz</groupId>
-    <artifactId>atlantafx-base</artifactId>
-    <version>2.0.0</version>
-  </dependency>
+    <!--Atlanta-->
+    <dependency>
+      <groupId>io.github.mkpaz</groupId>
+      <artifactId>atlantafx-base</artifactId>
+      <version>2.0.0</version>
+    </dependency>
 
     <!--Бібліотека для створення та доступу до SQLite бази даних-->
     <dependency>
@@ -153,6 +153,13 @@
       <groupId>jakarta.annotation</groupId>
       <artifactId>jakarta.annotation-api</artifactId>
       <version>3.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>2.2.224</version>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>

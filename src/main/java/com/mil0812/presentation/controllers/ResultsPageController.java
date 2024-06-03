@@ -7,6 +7,7 @@ import com.mil0812.persistence.entity.impl.TestType;
 import com.mil0812.persistence.repository.interfaces.ResultRepository;
 import com.mil0812.persistence.repository.interfaces.TestRepository;
 import com.mil0812.presentation.util.CurrentUser;
+import com.mil0812.presentation.util.ImageLoader;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -15,6 +16,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,8 +31,10 @@ public class ResultsPageController {
   @FXML
   public TableColumn<Result, Integer> gradeColumn;
   private final TestRepository testRepository;
-
   private final ResultRepository resultRepository;
+
+  final static Logger logger = LoggerFactory.getLogger(ResultsPageController.class);
+
 
   public ResultsPageController(TestRepository testRepository, ResultRepository resultRepository) {
     this.testRepository = testRepository;
@@ -46,7 +51,7 @@ public class ResultsPageController {
     testTitleColumn.setCellValueFactory(cellData -> {
       UUID testId = cellData.getValue().testId();
       Optional<Test> testOptional = testRepository.findById(testId);
-      Main.logger.info(STR."Test found by id - \{testOptional}");
+      logger.info(STR."Test found by id - \{testOptional}");
 
       return new javafx.beans.property.SimpleStringProperty(testOptional.map(Test::title).orElse(""));
         });

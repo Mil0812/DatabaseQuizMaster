@@ -1,17 +1,16 @@
 package com.mil0812.presentation.controllers;
 
 import com.mil0812.Main;
-import com.mil0812.domain.entities_names.TestTypesNames;
 import com.mil0812.persistence.entity.impl.Answer;
 import com.mil0812.persistence.entity.impl.Question;
 import com.mil0812.persistence.repository.interfaces.AnswerRepository;
 import com.mil0812.persistence.repository.interfaces.QuestionRepository;
 import com.mil0812.presentation.util.AlertUtil;
 import com.mil0812.presentation.util.CurrentTest;
+import com.mil0812.presentation.util.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -29,6 +28,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -43,7 +44,7 @@ public class ActiveTestingPageController extends ChildController {
   private Label answerResultLabel;
 
   @FXML
-  private ImageView backArrowOnQuiz;
+  private ImageView backArrowImageView;
 
   @FXML
   private Button confirmButton;
@@ -55,7 +56,7 @@ public class ActiveTestingPageController extends ChildController {
   private Pane dialogPane;
 
   @FXML
-  private ImageView girlImage;
+  private ImageView girlImageView;
 
   @FXML
   private Button nextQuestionButton;
@@ -72,12 +73,13 @@ public class ActiveTestingPageController extends ChildController {
 
   private List<Question> questionList;
   private int currentQuestionIndex;
-  private int points = 0;
+  private int points;
   private List<FlowPane> selectedAnswers;
   private Answer selectedAnswer;
 
   private final QuestionRepository questionRepository;
   private final AnswerRepository answerRepository;
+  final static Logger logger = LoggerFactory.getLogger(ActiveTestingPageController.class);
 
   @Autowired
   public ActiveTestingPageController(MainPageController mainPageController, CurrentTest currentTest,
@@ -90,30 +92,29 @@ public class ActiveTestingPageController extends ChildController {
 
   @FXML
   public void initialize() {
-    try {
-      girlImage.setImage(new Image(Objects.requireNonNull(
-          Objects.requireNonNull(getClass().getResource("/com/mil0812/images/girl1.png"))
-              .toExternalForm())));
-      backArrowOnQuiz.setImage(new Image(Objects.requireNonNull(
-          Objects.requireNonNull(getClass().getResource("/com/mil0812/images/back.png"))
-              .toExternalForm())));
-    } catch (Exception e) {
-      Main.logger.error(STR."Не вдалося завантажити зображення... \{e}");
-    }
+      Image girlImage = ImageLoader.loadImage("/com/mil0812/images/girl1.png");
+      if (girlImage != null) {
+        girlImageView.setImage(girlImage);
+      }
+
+      Image backImage = ImageLoader.loadImage("/com/mil0812/images/back.png");
+      if (backImage != null) {
+        backArrowImageView.setImage(backImage);
+      }
 
     questionsCountLabel.setText(String.valueOf(currentTest.getQuestionCount()));
+    points=0;
     loadQuizData();
 
     confirmButton.setOnMouseClicked(mouseEvent -> confirmAnswer());
     nextQuestionButton.setOnMouseClicked(mouseEvent -> moveToNextQuestion());
-    backArrowOnQuiz.setOnMouseClicked(mouseEvent -> returnToMainPage());
+    backArrowImageView.setOnMouseClicked(mouseEvent -> returnToMainPage());
   }
 
   // Метод для завантаження вмісту тесту
   private void loadQuizData() {
-    Main.logger.info("Loading started!");
     Set<Question> questions = questionRepository.findAllByTestId(currentTest.getCurrentTest().id());
-    Main.logger.info(STR."Questions - \{questions}");
+    logger.info(STR."Questions - \{questions}");
     if (!questions.isEmpty()) {
       questionList = new ArrayList<>(questions);
       currentQuestionIndex = 0;
@@ -123,7 +124,6 @@ public class ActiveTestingPageController extends ChildController {
 
   // Метод для безпосереднього показу вмісту тестового блоку
   private void displayQuestion(Question question) {
-    Main.logger.info("~ displaying");
     selectedAnswer=null;
     quizArea.getChildren().clear();
 
@@ -150,24 +150,16 @@ public class ActiveTestingPageController extends ChildController {
       } else {
         pathToCorrectnessImage = "/com/mil0812/images/wrong.png";
       }
+      Image correctnessImage = ImageLoader.loadImage(pathToCorrectnessImage);
 
-      Main.logger.info(STR."Image is about to be set. It's path is \{pathToCorrectnessImage}");
-
-      ImageView correctnessImage = new ImageView();
-      try {
-        correctnessImage.setImage(new Image(
-            Objects.requireNonNull(getClass().getResource(pathToCorrectnessImage)).toExternalForm()
-        ));
-      } catch (NullPointerException e) {
-        Main.logger.info(STR."Image not found: \{pathToCorrectnessImage}");
-        continue;
+      if (correctnessImage != null) {
+        ImageView correctnessImageView = new ImageView(correctnessImage);
+        correctnessImageView.setFitHeight(20);
+        correctnessImageView.setFitWidth(20);
+        correctnessImageView.setVisible(false);
+        answerPane.getChildren().add(correctnessImageView);
       }
-      correctnessImage.setFitHeight(20);
-      correctnessImage.setFitWidth(20);
-      correctnessImage.setVisible(false);
-      Main.logger.info("Image is set successfully!");
 
-      answerPane.getChildren().add(correctnessImage);
 
       VBox.setMargin(answerPane, new Insets(5));
       quizArea.getChildren().add(answerPane);
@@ -213,9 +205,10 @@ public class ActiveTestingPageController extends ChildController {
     dialogPane.setVisible(false);
     confirmButton.setVisible(true);
     nextQuestionButton.setVisible(false);
-    girlImage.setImage(new Image(Objects.requireNonNull(
-        Objects.requireNonNull(getClass().getResource("/com/mil0812/images/girl1.png"))
-            .toExternalForm())));
+    Image girlImage = ImageLoader.loadImage("/com/mil0812/images/girl1.png");
+    if (girlImage != null) {
+      girlImageView.setImage(girlImage);
+    }
     showNextQuestion();
   }
 
@@ -236,11 +229,10 @@ public class ActiveTestingPageController extends ChildController {
   // Метод після натиснення на кнопку "Відповісти"
   private void confirmAnswer() {
     if (selectedAnswer != null) {
-
       dialogPane.setVisible(true);
       confirmButton.setVisible(false);
 
-      if(currentQuestionIndex == questionList.size() - 1){
+      if (currentQuestionIndex == questionList.size() - 1) {
         nextQuestionButton.setText("ЗАВЕРШИТИ ТЕСТ");
       }
       nextQuestionButton.setVisible(true);
@@ -248,26 +240,24 @@ public class ActiveTestingPageController extends ChildController {
       makeAllImagesVisible(quizArea);
 
       if (selectedAnswer.correct()) {
-
-        girlImage.setImage(new Image(Objects.requireNonNull(
-            Objects.requireNonNull(getClass().getResource("/com/mil0812/images/girl2.png"))
-                .toExternalForm())));
+        Image happyGirl = ImageLoader.loadImage("/com/mil0812/images/girl2.png");
+        if (happyGirl != null) {
+          girlImageView.setImage(happyGirl);
+        }
         answerResultLabel.setText("Чудова робота! Так тримати!");
-
         points += 10;
       } else {
-        girlImage.setImage(new Image(Objects.requireNonNull(
-            Objects.requireNonNull(getClass().getResource("/com/mil0812/images/girl4.png"))
-                .toExternalForm())));
+        Image sadGirl = ImageLoader.loadImage("/com/mil0812/images/girl4.png");
+        if (sadGirl != null) {
+          girlImageView.setImage(sadGirl);
+        }
         answerResultLabel.setText("На жаль, відповідь невірна...");
       }
       pointsLabel.setText(STR."Ваш результат: \{points} балів");
-    }
-    else{
+    } else {
       AlertUtil.showWarningAlert("Оберіть варіант, будь ласка!");
     }
   }
-
 
   // Рекурсивний метод для отримання всіх зображень
   private void makeAllImagesVisible(Node node) {

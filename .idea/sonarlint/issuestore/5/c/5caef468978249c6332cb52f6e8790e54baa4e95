@@ -1,23 +1,27 @@
 
 v
-java:S1104"YMake springContext a static final constant or non-public and provide accessors if needed.(œÔ³8›¶¶îü1
+java:S1104"YMake springContext a static final constant or non-public and provide accessors if needed.(œÔ³8–††åı1
 P
-java:S1444"3Make this "public static springContext" field final(œÔ³8œ¶¶îü1
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¢„›¨8¹¶¶îü1
+java:S1444"3Make this "public static springContext" field final(œÔ³8—††åı1
+]	java:S125"<This block of commented-out lines of code should be removed.(éÃÂëúÿÿÿÿ8Ä††åı1
+^
+java:S1075&"ARefactor your code to get this URI from a customizable parameter.(’‰‰é8Æ††åı1
+^
+java:S10751"ARefactor your code to get this URI from a customizable parameter.(›Ã¢ß8ß††åı1
 U
-java:S14817"8Remove this unused "databaseInitializer" local variable.(¿ÌÙÅ8Öò›±ı1
-M
-java:S14819"+Remove this unused "tester" local variable.(È¨ÖŒüÿÿÿÿ8Õ™à‰ı1
-]	java:S125<"<This block of commented-out lines of code should be removed.(Èªş¨üÿÿÿÿ8Øò›±ı1
-W	java:S125@"<This block of commented-out lines of code should be removed.(ƒ…“48Ö™à‰ı1
+java:S1481A"8Remove this unused "databaseInitializer" local variable.(¿ÌÙÅ8ç††åı1
+]	java:S125D"<This block of commented-out lines of code should be removed.(Èªş¨üÿÿÿÿ8è††åı1
 k
-java:S1128"IRemove this unused import 'com.mil0812.persistence.entity.impl.Question'.(ğ™ıüÿÿÿÿ8Ê¿îü1
+java:S1128"IRemove this unused import 'com.mil0812.persistence.entity.impl.Question'.(ğ™ıüÿÿÿÿ8é††åı1
 
-java:S1128"]Remove this unused import 'com.mil0812.persistence.repository.interfaces.QuestionRepository'.(¨Õşòøÿÿÿÿ8Ë¿îü1
+java:S1128"]Remove this unused import 'com.mil0812.persistence.repository.interfaces.QuestionRepository'.(¨Õşòøÿÿÿÿ8é††åı1
 d
-java:S1128"BRemove this unused import 'com.mil0812.domain.GeneralTableFiller'.(•ĞûÙøÿÿÿÿ8Ùò›±ı1
+java:S1128"BRemove this unused import 'com.mil0812.domain.GeneralTableFiller'.(•ĞûÙøÿÿÿÿ8é††åı1
 L
-java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8Ë¿îü1
+java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8ê††åı1
 M
-java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8Ì¿îü1
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8ê††åı1
+I
+java:S1128"-Remove this unused import 'org.slf4j.Logger'.(íØ®68ê††åı1
+Q
+java:S1128"4Remove this unused import 'org.slf4j.LoggerFactory'.(–ÿÚŞ8ê††åı1

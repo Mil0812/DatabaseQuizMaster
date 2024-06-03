@@ -7,8 +7,11 @@ import com.mil0812.persistence.entity.impl.Answer;
 import com.mil0812.persistence.entity.impl.Question;
 import com.mil0812.persistence.repository.interfaces.QuestionRepository;
 import com.mil0812.persistence.unit_of_work.PersistenceContext;
+import com.mil0812.presentation.util.ImageLoader;
 import java.util.Optional;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -17,8 +20,10 @@ import org.springframework.stereotype.Component;
 public class AnswerTableFiller implements TableFiller {
 
   private final QuestionRepository questionRepository;
-
   private final PersistenceContext persistenceContext;
+
+  final static Logger logger = LoggerFactory.getLogger(AnswerTableFiller.class);
+
 
   public AnswerTableFiller(QuestionRepository questionRepository, PersistenceContext persistenceContext) {
     this.questionRepository = questionRepository;
@@ -918,7 +923,7 @@ public class AnswerTableFiller implements TableFiller {
       return  currentQuestion.get().id();
     }
     catch (Exception e){
-      Main.logger.error(STR."Не вдалося отримати питання через назву: \{e}");
+      logger.error(STR."Не вдалося отримати питання через назву: \{e}");
       return null;
     }
   }

@@ -1,5 +1,6 @@
 package com.mil0812.presentation.controllers;
 
+import com.mil0812.Main;
 import com.mil0812.persistence.entity.impl.User;
 import com.mil0812.persistence.repository.interfaces.UserRepository;
 import com.mil0812.presentation.util.AlertUtil;
@@ -11,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -2,19 +2,18 @@ package com.mil0812.presentation.controllers;
 
 import com.mil0812.presentation.util.CurrentTest;
 import com.mil0812.presentation.util.CurrentUser;
-import java.util.Objects;
+import com.mil0812.presentation.util.ImageLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TestWelcomePageController extends ChildController{
   @FXML
-  public ImageView girlImage;
+  public ImageView girlImageView;
   @FXML
   public AnchorPane welcomePane;
   @FXML
@@ -39,9 +38,10 @@ public class TestWelcomePageController extends ChildController{
   @FXML
   public void initialize(){
 
-      girlImage.setImage(new Image(Objects.requireNonNull(
-          Objects.requireNonNull(getClass().getResource("/com/mil0812/images/girl1.png"))
-              .toExternalForm())));
+    Image girlImage = ImageLoader.loadImage("/com/mil0812/images/girl1.png");
+    if (girlImage != null) {
+      girlImageView.setImage(girlImage);
+    }
       welcomePane.setOnMouseClicked(mouseEvent -> pageSwitcher.switchPane
           ("/com/mil0812/view/active-testing-view.fxml"));
       fillLabels();

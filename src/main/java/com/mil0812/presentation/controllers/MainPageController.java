@@ -1,6 +1,5 @@
 package com.mil0812.presentation.controllers;
 
-import static com.mil0812.Main.logger;
 import static com.mil0812.Main.springContext;
 
 import com.mil0812.Main;
@@ -10,6 +9,7 @@ import com.mil0812.presentation.SpringFXMLLoader;
 import com.mil0812.presentation.util.CurrentTest;
 import com.mil0812.presentation.util.CurrentUser;
 import com.mil0812.presentation.util.FXMLLoaderResult;
+import com.mil0812.presentation.util.ImageLoader;
 import com.mil0812.presentation.util.PageSwitcher;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,6 +28,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -69,6 +71,9 @@ public class MainPageController implements PageSwitcher{
   private final UserUnitOfWork userUnitOfWork;
   private final CurrentTest currentTest;
 
+  final static Logger logger = LoggerFactory.getLogger(MainPageController.class);
+
+
   @Autowired
   public MainPageController(UserUnitOfWork userUnitOfWork, CurrentTest currentTest) {
     this.userUnitOfWork = userUnitOfWork;
@@ -85,7 +90,7 @@ public class MainPageController implements PageSwitcher{
           Objects.requireNonNull(getClass().getResource("/com/mil0812/images/quiz.png"))
               .toExternalForm())));
     } catch (Exception e) {
-      Main.logger.error(STR."Помилка при завантаженні зображення: \{e}");
+      logger.error(STR."Помилка при завантаженні зображення: \{e}");
     }
 
     switchPane("/com/mil0812/view/enter-page-view.fxml");

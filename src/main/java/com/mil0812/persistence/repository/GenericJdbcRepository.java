@@ -266,7 +266,6 @@ public abstract class GenericJdbcRepository<T extends Entity> implements Reposit
                              SET \{attributesString}
                            WHERE id = ?
                          """;
-    logger.info(STR."SQL-запит на оновлення: \{sql}");
 
 
     int idIndex = attributes.size();
@@ -277,7 +276,6 @@ public abstract class GenericJdbcRepository<T extends Entity> implements Reposit
 
   private T updateExecute(Collection<Object> rawValues, String sql, String exceptionMessage) {
     List<Object> values = new ArrayList<>(rawValues);
-    logger.info(STR."Список значень: \{values}");
     try (Connection connection = connectionManager.get();
         PreparedStatement statement = connection.prepareStatement(sql)) {
       for (int i = 0; i < values.size(); i++) {
@@ -301,10 +299,7 @@ public abstract class GenericJdbcRepository<T extends Entity> implements Reposit
       values.put("id", Objects.isNull(entity.id()) ? UUID.randomUUID() : entity.id());
 
       listOfValues.add(values);
-      logger.info(STR."~ id = \{entity.id()}");
-      logger.info(STR."~ list of values = \{listOfValues}");
     }
-
     if (entities.stream().allMatch(e -> Objects.isNull(e.id()))) {
       results = batchInsert(listOfValues);
     } else {
@@ -328,7 +323,6 @@ public abstract class GenericJdbcRepository<T extends Entity> implements Reposit
                 VALUES (\{placeholders})
         """;
 
-    /* logger.info(STR."~ insert sql = \{sql}");*/
 
     if (attributes.stream().anyMatch(a -> a.equals("date_of_test"))) {
       listOfValues.forEach(values -> {
@@ -370,8 +364,7 @@ public abstract class GenericJdbcRepository<T extends Entity> implements Reposit
           for (int i = 0; i < values.size(); i++) {
             statementSetter(values, i, statement);
           }
-          //logger.info(STR."~ statement = \{statement}");
-          statement.addBatch();
+           statement.addBatch();
         }
         statement.executeBatch();
 

@@ -84,12 +84,17 @@ public class RegistrationPageController extends ChildController {
     signUpButton.setOnMouseClicked(mouseEvent -> signUp());
     initializeElements();
 
-    backArrowImage.setImage(new Image(Objects.requireNonNull(
-        Objects.requireNonNull(getClass().getResource("/com/mil0812/images/back.png"))
-            .toExternalForm())));
+    try {
+      backArrowImage.setImage(new Image(Objects.requireNonNull(
+          Objects.requireNonNull(getClass().getResource("/com/mil0812/images/back.png"))
+              .toExternalForm())));
+    }
+    catch (Exception e){
+      logger.error(STR."Помилка при завантаженні зображень... \{e}");
+    }
+
     backArrowImage.setOnMouseClicked(mouseEvent -> pageSwitcher.switchPane
         ("/com/mil0812/view/enter-page-view.fxml"));
-
     // Observer - лістенери на зміну вмісту текст філдів
     loginTextField.textProperty().addListener((obs, oldText, newText) -> {
       initializeElements();
@@ -142,7 +147,7 @@ public class RegistrationPageController extends ChildController {
       fis.read(data);
       return data;
     } catch (IOException e) {
-      logger.error("Помилка зчитування байтів із зображення: {}", e);
+      logger.error(STR."Помилка зчитування байтів із зображення: \{e}");
       return null;
     }
   }
@@ -200,11 +205,13 @@ public class RegistrationPageController extends ChildController {
     String onlyLatinPattern = "^[a-zA-Z\\d]+$";
     String passwordPattern = "^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]+$";
 
+    String blankFieldError = "Заповніть поле, будь ласка";
     String lessThan5SymbolsError = "Поле має містити більше 5 символів";
     String notOnlyLatinLettersError = "Лише латинські літери";
     String notLikePasswordPattern = "Лише латинські літери + принаймні 1 цифра та 1 велика літера";
 
     if(!login.isBlank()) {
+      loginErrorsList.remove(blankFieldError);
       if (login.length() <= 5) {
         loginErrorsList.add(lessThan5SymbolsError);
       } else {
@@ -216,8 +223,12 @@ public class RegistrationPageController extends ChildController {
         loginErrorsList.remove(notOnlyLatinLettersError);
       }
     }
+    else{
+      loginErrorsList.add(blankFieldError);
+    }
 
     if(!password.isBlank()) {
+      passwordErrorsList.remove(lessThan5SymbolsError);
       if (password.length() <= 5) {
         passwordErrorsList.add(lessThan5SymbolsError);
       } else {
@@ -229,6 +240,9 @@ public class RegistrationPageController extends ChildController {
       } else {
         passwordErrorsList.remove(notLikePasswordPattern);
       }
+    }
+    else{
+      passwordErrorsList.add(blankFieldError);
     }
   }
 }

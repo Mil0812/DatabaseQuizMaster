@@ -11,8 +11,11 @@ import com.mil0812.persistence.ApplicationConfig;
 import com.mil0812.persistence.entity.impl.Section;
 import com.mil0812.persistence.entity.impl.TestType;
 import com.mil0812.persistence.unit_of_work.PersistenceContext;
+import com.mil0812.presentation.util.ImageLoader;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.annotation.Order;
@@ -25,6 +28,9 @@ import org.springframework.core.annotation.Order;
 @ComponentScan(basePackages = "com.mil0812")
 public class GeneralTableFiller {
   public static AnnotationConfigApplicationContext springContext;
+
+  final static Logger logger = LoggerFactory.getLogger(GeneralTableFiller.class);
+
 
   public static void fillTables(){
     springContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
@@ -44,7 +50,7 @@ public class GeneralTableFiller {
         filler.fill();
       }
     } catch (Exception e) {
-      Main.logger.error(STR."Помилка при заповненні таблиць даними: \{e}");
+      logger.error(STR."Помилка при заповненні таблиць даними: \{e}");
     }
   }
 }

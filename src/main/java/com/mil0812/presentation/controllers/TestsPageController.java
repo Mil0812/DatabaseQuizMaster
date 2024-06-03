@@ -9,6 +9,7 @@ import com.mil0812.persistence.repository.interfaces.TestRepository;
 import com.mil0812.persistence.repository.interfaces.TestTypeRepository;
 import com.mil0812.presentation.util.AlertUtil;
 import com.mil0812.presentation.util.CurrentTest;
+import com.mil0812.presentation.util.ImageLoader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,6 +20,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import java.util.Optional;
 import java.util.Set;
@@ -47,6 +50,9 @@ public class TestsPageController {
   private final TestTypeRepository testTypeRepository;
   private final CurrentTest currentTest;
 
+  final static Logger logger = LoggerFactory.getLogger(TestsPageController.class);
+
+
   public TestsPageController(MainPageController mainPageController, TestRepository testRepository,
       SectionRepository sectionRepository, TestTypeRepository testTypeRepository,
       CurrentTest currentTest) {
@@ -68,14 +74,14 @@ public class TestsPageController {
     testSectionColumn.setCellValueFactory(cellData -> {
       UUID sectionId = cellData.getValue().sectionId();
       Optional<Section> sectionOptional = sectionRepository.findById(sectionId);
-      Main.logger.info(STR."Section found by id - \{sectionOptional}");
+      logger.info(STR."Section found by id - \{sectionOptional}");
 
       return new javafx.beans.property.SimpleStringProperty(sectionOptional.map(Section::name).orElse(""));
     });
     testTypeColumn.setCellValueFactory(cellData -> {
       UUID typeId = cellData.getValue().testTypeId();
       Optional<TestType> testTypeOptional = testTypeRepository.findById(typeId);
-      Main.logger.info(STR."Test type found by id - \{testTypeOptional}");
+      logger.info(STR."Test type found by id - \{testTypeOptional}");
 
       return new javafx.beans.property.SimpleStringProperty(testTypeOptional.map(TestType::name).orElse(""));
     });
@@ -90,7 +96,7 @@ public class TestsPageController {
         if (!row.isEmpty()) {
           Test rowData = row.getItem();
           currentTest.setCurrentTest(rowData);
-          Main.logger.info(STR."Current test - \{ currentTest}");
+          logger.info(STR."Current test - \{ currentTest}");
 
           startTesting();
         }
